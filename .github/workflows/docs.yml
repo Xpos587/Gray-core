@@ -25,7 +25,6 @@ jobs:
         uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
-          cache-dependency-path: mkdocs.yml
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -46,6 +45,7 @@ jobs:
           path: ./site
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
