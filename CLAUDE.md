@@ -243,7 +243,7 @@ All research materials are provided for:
 
 ## License
 
-Mozilla Public License Version 2.0 ([MPL-2.0](LICENSE))
+Mozilla Public License Version 2.0 ([MPL-2.0](https://github.com/Xpos587/Gray-core/blob/main/LICENSE))
 
 ---
 

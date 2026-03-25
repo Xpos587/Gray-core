@@ -16,7 +16,6 @@
 
 # IDE/editor specific files
 .idea/
-.vscode/
 *.swp
 *.swo
 
@@ -67,3 +66,10 @@ ehthumbs.db
 *.bak
 *.tmp
 site/
+# VitePress build output
+.vitepress/dist/
+docs/.vitepress/dist/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

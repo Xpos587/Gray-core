@@ -14,9 +14,9 @@ Welcome to the developer section of the Xray-core fork.
 
 ## Research
 
-- [TSPU Research](../tspu/research.md) — DPI bypass research
-- [Packet Morphing](../tspu/packet-morphing.md) — Packet randomization design
-- [Timing Randomization](../tspu/timing-randomization.md) — Timing randomization design
+- [TSPU Research](https://xpos587.github.io/Gray-core/ru/tspu/research) — DPI bypass research (Russian)
+- [Packet Morphing](https://xpos587.github.io/Gray-core/ru/tspu/packet-morphing) — Packet randomization design (Russian)
+- [Timing Randomization](https://xpos587.github.io/Gray-core/ru/tspu/timing-randomization) — Timing randomization design (Russian)
 
 ## Protocols
 
