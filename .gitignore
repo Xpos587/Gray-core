@@ -67,3 +67,6 @@ ehthumbs.db
 *.bak
 *.tmp
 site/
+# VitePress build output
+.vitepress/dist/
+docs/.vitepress/dist/
