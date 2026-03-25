@@ -1,0 +1,83 @@
+site_name: Xray-core Fork Documentation
+site_url: https://xpos587.github.io/Xray-core/
+site_description: DPI bypass research and TSPU documentation
+site_author: Xpos587
+
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - admonition
+
+extra:
+  alternate:
+    - language: ru
+      name: Русский
+      link: /ru/
+    - language: en
+      name: English
+      link: /en/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Xpos587/Xray-core
+
+# Directory configuration
+docs_dir: docs
+site_dir: site
+
+# Navigation
+nav:
+  - ru/index.md
+  - ТСПУ:
+    - ru/tspu/index.md
+    - Исследования: ru/tspu/research.md
+    - Packet Morphing: ru/tspu/packet-morphing.md
+    - Timing Randomization: ru/tspu/timing-randomization.md
+    - User Guide: ru/tspu/user-guide.md
+    - Главы:
+      - ru/tspu/chapters/01.md
+      - ru/tspu/chapters/02.md
+      - ru/tspu/chapters/03.md
+      - ru/tspu/chapters/04.md
+  - Для разработчиков:
+    - ru/dev/index.md
+    - Архитектура: ru/dev/architecture.md
+    - Contributing: ru/dev/contributing.md
+
+# Copyright
+copyright: Copyright &copy; 2025 Xpos587
