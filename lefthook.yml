@@ -1,0 +1,111 @@
+# $schema: https://raw.githubusercontent.com/evilmartians/lefthook/master/schema.json
+# Lefthook configuration for Xray-core
+assert_lefthook_installed: true
+colors: true
+
+pre-commit:
+  parallel: true
+  commands:
+    protect-branches:
+      run: |
+        BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
+        if [[ $BRANCH =~ ^(main|master|develop)$ ]]; then
+          echo "❌ Direct commits to '$BRANCH' are not allowed."
+          echo "Please use a feature/hotfix/release branch."
+          exit 1
+        fi
+
+    gitleaks:
+      run: |
+        if ! command -v gitleaks &> /dev/null; then
+          exit 0
+        fi
+        if [ -f ".gitleaks-skip" ]; then
+          exit 0
+        fi
+        gitleaks protect --staged --redact --no-banner
+
+    go-fmt:
+      glob: "*.go"
+      run: go fmt ./...
+      stage_fixed: true
+
+    go-mod:
+      run: go mod tidy
+
+    go-vet:
+      glob: "*.go"
+      run: go vet ./...
+
+    go-test-short:
+      glob: "*_test.go"
+      run: go test -short ./...
+
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: |
+        COMMIT_MSG=$(cat {1})
+        if echo "$COMMIT_MSG" | grep -qE "^Merge (branch|remote-tracking branch)"; then
+          exit 0
+        fi
+        MSG_LENGTH=$(echo "$COMMIT_MSG" | grep -v '^#' | grep -v '^$' | wc -c | tr -d ' ')
+        if [ "$MSG_LENGTH" -lt 10 ]; then
+          echo "❌ COMMIT REJECTED: Message is too short (min 10 chars)."
+          exit 1
+        fi
+        if echo "$COMMIT_MSG" | grep -qiE "^(wip|test|temp|tmp|fix|update)$"; then
+          echo "⚠️  WARNING: Commit message '$COMMIT_MSG' is too generic."
+        fi
+
+pre-push:
+  commands:
+    protect-push:
+      run: |
+        PROTECTED_BRANCHES="^(main|master|develop)$"
+        while read local_ref local_sha remote_ref remote_sha; do
+          if [ "$remote_ref" = "(delete)" ]; then continue; fi
+          BRANCH=$(echo "$remote_ref" | sed 's/refs\/heads\///')
+          if [[ $BRANCH =~ $PROTECTED_BRANCHES ]]; then
+            if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then continue; fi
+            IS_ANCESTOR=$(git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; echo $?)
+            if [ "$IS_ANCESTOR" != "0" ]; then
+              echo "❌ PUSH REJECTED: Force push to protected branch '$BRANCH' is not allowed."
+              exit 1
+            fi
+          fi
+          if [[ $BRANCH =~ ^(main|master)$ ]]; then
+            CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
+            if [[ ! $CURRENT_BRANCH =~ ^(release|hotfix|docs)/ ]]; then
+              echo "⚠️  You are pushing to '$BRANCH' from '$CURRENT_BRANCH'."
+              read -p "Type 'yes' to continue: " CONFIRM
+              if [ "$CONFIRM" != "yes" ]; then
+                echo "Push cancelled."
+                exit 1
+              fi
+            fi
+          fi
+        done
+
+    go-test:
+      glob: "*_test.go"
+      run: go test ./...
+
+    go-build:
+      run: CGO_ENABLED=0 go build -o /dev/null ./main
+
+# Custom group for manual execution
+format:
+  commands:
+    go-fmt:
+      glob: "*.go"
+      run: go fmt ./...
+
+    goimports:
+      glob: "*.go"
+      run: |
+        if ! command -v goimports &> /dev/null; then
+          echo "⚠️  goimports not installed, skipping"
+          exit 0
+        fi
+        goimports -w .
