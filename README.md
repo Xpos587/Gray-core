@@ -5,7 +5,7 @@
 **A network proxy platform for educational research.**
 
 [![Stars](https://img.shields.io/github/stars/Xpos587/Gray-core?style=flat)](https://github.com/Xpos587/Gray-core)
-[![License](https://img.shields.io/badge/license-MPL--2.0-purple)](LICENSE)
+[![License](https://img.shields.io/badge/license-MPL--2.0-purple)](https://github.com/Xpos587/Gray-core/blob/main/LICENSE)
 [![Docs](https://img.shields.io/badge/docs-gray--core-blue)](https://xpos587.github.io/Gray-core/)
 
 </div>
@@ -113,7 +113,7 @@ Example:
 
 ## License
 
-Mozilla Public License Version 2.0 ([MPL-2.0](LICENSE))
+Mozilla Public License Version 2.0 ([MPL-2.0](https://github.com/Xpos587/Gray-core/blob/main/LICENSE))
 
 ---
 
