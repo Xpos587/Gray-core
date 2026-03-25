@@ -84,15 +84,12 @@ export default defineConfig({
   },
 
   markdown: {
-    languages: [
-      {
-        id: 'ru',
-        label: 'Russian',
-        searchLabel: 'Поиск на русском',
-        search: {
-          translator: (text) => text
-        }
-      }
-    ]
+    // Removed languages config to avoid Shiki grammar loading issues
+  },
+
+  vite: {
+    build: {
+      minify: 'esbuild'
+    }
   }
 })
