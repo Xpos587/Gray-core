@@ -1,14 +1,30 @@
-# CLAUDE.md - Xray-core
+# CLAUDE.md - Gray-core
+
+## ⚠️ Educational Purpose Notice
+
+**Gray-core is an educational and research project.**
+
+This project is designed for:
+- Academic study of network protocols and architecture
+- Research into network traffic analysis and patterns
+- Understanding of DPI (Deep Packet Inspection) systems
+- Documentation of censorship infrastructure for research purposes
+
+**Legal Notice:**
+- This software is provided for educational and research purposes only
+- Users must comply with all applicable laws and regulations
+- The authors do not endorse any illegal use of this software
+- No security or anonymity guarantees are provided
 
 ## Project Overview
 
-**Xray-core** is a network proxy platform and the best v2ray-core fork. It implements advanced proxy protocols including VLESS, XTLS, REALITY, XUDP, and PLUX.
+**Gray-core** is a network proxy platform for educational research, studying network protocols, traffic patterns, and DPI systems.
 
-- **Repository**: [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
+- **Repository**: [Xpos587/Gray-core](https://github.com/Xpos587/Gray-core)
 - **Language**: Go 1.26
 - **License**: MPL-2.0
-- **Scale**: Medium (~948 files, 844 Go sources)
-- **Stars**: 36k+
+- **Scale**: Medium (~900+ files)
+- **Purpose**: Educational research and network analysis
 
 ## Architecture
 
@@ -16,7 +32,7 @@
 
 ```
 core/           - Core Instance and feature management
-main/           - CLI entry point (xray command)
+main/           - CLI entry point (gray-core command)
 app/            - Application features (DNS, router, policy, stats)
 proxy/          - Protocol implementations (inbound/outbound)
 transport/      - Transport layer (internet, pipe)
@@ -30,7 +46,7 @@ testing/        - Test utilities and mocks
 | Package | Purpose |
 |---------|---------|
 | `core/xray.go` | Main Instance, feature registration, lifecycle |
-| `main/main.go` | CLI entry point, v4 compatibility mode |
+| `main/main.go` | CLI entry point |
 | `app/proxyman` | Inbound/outbound handler management |
 | `app/router` | Routing engine and rule matching |
 | `app/dns` | DNS client and resolver |
@@ -45,16 +61,16 @@ testing/        - Test utilities and mocks
 ### Standard Build
 ```bash
 # Linux / macOS
-CGO_ENABLED=0 go build -o xray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+CGO_ENABLED=0 go build -o gray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 
 # Windows (PowerShell)
 $env:CGO_ENABLED=0
-go build -o xray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+go build -o gray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 ```
 
 ### Reproducible Build
 ```bash
-CGO_ENABLED=0 go build -o xray -trimpath -buildvcs=false -gcflags="all=-l=4" -ldflags="-X github.com/xtls/xray-core/core.build=REPLACE -s -w -buildid=" -v ./main
+CGO_ENABLED=0 go build -o gray-core -trimpath -buildvcs=false -gcflags="all=-l=4" -ldflags="-s -w -buildid=" -v ./main
 ```
 
 ### Testing
@@ -75,7 +91,7 @@ go test -v ./core
 ## Protocol Support
 
 ### Inbound Protocols
-- VLESS (with XTLS-Vision, REALITY)
+- VLESS
 - VMess
 - Trojan
 - Shadowsocks / Shadowsocks 2022
@@ -96,7 +112,9 @@ go test -v ./core
 
 ## Configuration
 
-Xray-core uses JSON/JSON5/YAML/TOML configuration files. The main config format is defined in:
+Gray-core supports JSON/JSON5/YAML/TOML configuration files.
+
+The main config format is defined in:
 - `core/config.proto` - Protocol buffer definition
 - `core/config.pb.go` - Generated Go code
 
@@ -107,7 +125,7 @@ Xray-core uses JSON/JSON5/YAML/TOML configuration files. The main config format 
 ## Development Notes
 
 ### Feature System
-Xray uses a feature-based architecture where components register as features:
+Gray-core uses a feature-based architecture where components register as features:
 ```go
 type Instance struct {
     features []features.Feature
@@ -135,24 +153,6 @@ TLS handshake camouflage protocol that mimics real websites.
 
 ### XUDP
 UDP multiplexing over TCP-based transports.
-
-## Workflow Integration
-
-### GitHub Operations
-```bash
-# List PRs
-gh pr list --repo XTLS/Xray-core --limit 10
-
-# Check CI status
-gh pr checks <PR-number> --repo XTLS/Xray-core
-
-# View recent issues
-gh issue list --repo XTLS/Xray-core --state open
-```
-
-### Active PRs
-- PRs often include protocol improvements, bug fixes
-- Check labels for "PR welcome" items
 
 ## Environment
 
@@ -182,3 +182,72 @@ Supports Linux, Windows, macOS, BSD, Android, iOS, and various architectures (am
 - Zero-copy operations where possible
 - Connection pooling for DNS
 - Efficient routing with cached lookups
+
+## Critical Thinking Checklist
+
+**Before any implementation, ask yourself:**
+
+### Core Question
+> **"Не хуйню ли я делаю?"** (Am I doing bullshit?)
+
+### Project Evaluation Criteria
+| Criterion | Question | Example |
+|-----------|----------|---------|
+| `problem_scope` | Is the scope appropriately scoped? | "Add DPI bypass" → Too broad. "Analyze DPI behavior" → Research |
+| `motivation` | Is there a compelling justification? | Must be for educational purposes |
+| `scalability` | Is the proposed method applicable to research? | Fixed patterns → No. Dynamic analysis → Yes |
+| `memorable_takeaway` | Is there a clear research outcome? | What will be learned? |
+| `interdisciplinary_appeal` | Does the work have academic value? | Can this apply to other research? |
+| `opens_new_directions` | Does the work open new research avenues? | Are we solving root problems? |
+
+### Anti-Patterns
+❌ Accepting requirements without questioning "why?"
+❌ Assuming "popular" = "safe to mimic"
+❌ Fixed patterns in research — become targets
+❌ Surface-level understanding of the threat model
+
+### Before Coding
+1. **Verify premises**: What facts is this decision based on?
+2. **Check research capabilities**: What can we actually analyze?
+3. **Consider second-order effects**: If this works, what breaks next?
+4. **Search for existing research**: Has this been studied?
+
+## Russia DPI/TSPU Research Context
+
+⚠️ **IMPORTANT**: All TSPU/DPI research in this repository is for **educational purposes only**.
+
+### Research Documentation
+Located in `docs/ru/tspu/`:
+- Technical analysis of ТСПУ (Technical Means of Threat Combating)
+- DPI detection methods documentation
+- Network traffic pattern analysis
+- Academic study of censorship infrastructure
+
+### Legal Notice
+All research materials are provided for:
+- Academic study of network infrastructure
+- Understanding of censorship systems
+- Documentation of technical capabilities
+- Research into network protocols
+
+**Not intended for:**
+- Circumvention of lawful network restrictions
+- Any illegal activities
+- Bypass of legitimate security measures
+
+## Documentation
+
+- **Project Docs**: [gray-core.github.io](https://xpos587.github.io/Gray-core/)
+- **TSPU Research**: `docs/ru/tspu/`
+- **Developer Guides**: `docs/ru/dev/`, `docs/en/dev/`
+
+## License
+
+Mozilla Public License Version 2.0 ([MPL-2.0](LICENSE))
+
+---
+
+**Gray-core** — Educational network proxy platform
+Research repository maintained by [@Xpos587](https://github.com/Xpos587)
+
+**Last Updated**: 2026

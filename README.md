@@ -1,41 +1,51 @@
-# Xray-core
+# Gray-core
 
 <div align="center">
 
-**A network proxy platform for building proxies.**
+**A network proxy platform for educational research.**
 
-[![Stars](https://img.shields.io/github/stars/Xpos587/Xray-core?style=flat)](https://github.com/Xpos587/Xray-core)
-[![Upstream](https://img.shields.io/badge/upstream-XTLS%2FXray--core-blue)](https://github.com/XTLS/Xray-core)
+[![Stars](https://img.shields.io/github/stars/Xpos587/Gray-core?style=flat)](https://github.com/Xpos587/Gray-core)
 [![License](https://img.shields.io/badge/license-MPL--2.0-purple)](LICENSE)
+[![Docs](https://img.shields.io/badge/docs-gray--core-blue)](https://xpos587.github.io/Gray-core/)
 
 </div>
 
-## About This Fork
+## ⚠️ Educational Disclaimer
 
-This is a **fork of [XTLS/Xray-core](https://github.com/XTLS/Xray-core)** maintained by [@Xpos587](https://github.com/Xpos587).
+**This project is intended solely for educational and research purposes.**
 
-### Purpose
+Gray-core is a network proxy platform developed to study:
+- Network protocol analysis and behavior
+- DPI (Deep Packet Inspection) systems and their characteristics
+- Network traffic patterns and statistics
+- Protocol obfuscation concepts for academic research
 
-- Research and analysis of modern censorship circumvention systems
-- Development of enhanced protocol obfuscation techniques
-- Study of DPI (Deep Packet Inspection) bypass methods
-- Documentation and technical analysis of censorship infrastructure
+**Important Legal Notice:**
+- This software is provided for research and educational purposes only
+- Users are responsible for complying with all applicable laws and regulations
+- The authors do not condone or encourage any illegal use
+- This project does not provide anonymity guarantees or security assurances
+
+By using this software, you agree that you understand and accept these terms.
+
+## About Gray-core
+
+Gray-core is a network proxy platform based on open-source technologies, modified and extended for educational research into network protocols, traffic analysis, and censorship systems.
+
+### Research Areas
+
+- **Protocol Analysis** — Study of network protocol behavior and characteristics
+- **Traffic Patterns** — Analysis of network traffic statistics and patterns
+- **DPI Research** — Documentation and analysis of inspection systems
+- **Network Architecture** — Understanding of modern network infrastructure
 
 ### Documentation
 
-See `/docs/tspu/` for technical documentation on censorship systems (ТСПУ, DPI, traffic analysis).
-
----
-
-## What is Xray-core?
-
-Xray-core is a network proxy platform and the best v2ray-core fork. It implements advanced proxy protocols:
-
-- **VLESS** — Lightweight protocol
-- **XTLS** — TLS acceleration and camouflage
-- **REALITY** — TLS handshake mimicking real websites
-- **XUDP** — UDP multiplexing over TCP
-- **WireGuard**, **Trojan**, **Shadowsocks**, **VMess** and more
+See [gray-core.github.io](https://xpos587.github.io/Gray-core/) for:
+- Technical documentation on network systems
+- Research papers and analysis
+- Architecture documentation
+- Developer guides
 
 ## Quick Start
 
@@ -43,11 +53,11 @@ Xray-core is a network proxy platform and the best v2ray-core fork. It implement
 
 ```bash
 # Linux / macOS
-CGO_ENABLED=0 go build -o xray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+CGO_ENABLED=0 go build -o gray -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 
 # Windows (PowerShell)
 $env:CGO_ENABLED=0
-go build -o xray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
+go build -o gray.exe -trimpath -buildvcs=false -ldflags="-s -w -buildid=" -v ./main
 ```
 
 ### Test
@@ -69,9 +79,18 @@ common/         # Shared utilities (crypto, net, buffer)
 
 See [`CLAUDE.md`](CLAUDE.md) for detailed project documentation.
 
+## Supported Protocols
+
+- **VLESS** — Lightweight protocol
+- **VMess** — Original protocol
+- **Trojan** — Trojan protocol
+- **Shadowsocks** — Shadowsocks protocol
+- **WireGuard** — WireGuard protocol
+- **HTTP/HTTPS**, **SOCKS** — Standard proxy protocols
+
 ## Configuration
 
-Xray-core supports JSON/JSON5/YAML/TOML configuration files.
+Gray-core supports JSON/JSON5/YAML/TOML configuration files.
 
 Example:
 ```json
@@ -89,9 +108,8 @@ Example:
 
 ## Project Links
 
-- **Upstream**: [XTLS/Xray-core](https://github.com/XTLS/Xray-core)
-- **Documentation**: [Project X Website](https://xtls.github.io)
-- **Examples**: [XTLS/Xray-examples](https://github.com/XTLS/Xray-examples)
+- **Documentation**: [Gray-core Docs](https://xpos587.github.io/Gray-core/)
+- **Repository**: [github.com/Xpos587/Gray-core](https://github.com/Xpos587/Gray-core)
 
 ## License
 
@@ -99,4 +117,7 @@ Mozilla Public License Version 2.0 ([MPL-2.0](LICENSE))
 
 ---
 
-**Upstream**: [XTLS/Xray-core](https://github.com/XTLS/Xray-core) | **Fork**: [@Xpos587](https://github.com/Xpos587)
+**Gray-core** — Educational network proxy platform
+Maintained by [@Xpos587](https://github.com/Xpos587)
+
+**Last Updated**: 2026

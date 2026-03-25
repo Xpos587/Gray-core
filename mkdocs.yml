@@ -1,6 +1,6 @@
-site_name: Xray-core Fork Documentation
-site_url: https://xpos587.github.io/Xray-core/
-site_description: DPI bypass research and TSPU documentation
+site_name: Gray-core Documentation
+site_url: https://xpos587.github.io/Gray-core/
+site_description: Network proxy platform for educational research
 site_author: Xpos587
 
 theme:
@@ -54,7 +54,7 @@ extra:
       link: /en/
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Xpos587/Xray-core
+      link: https://github.com/Xpos587/Gray-core
 
 # Directory configuration
 docs_dir: docs
@@ -63,7 +63,7 @@ site_dir: site
 # Navigation
 nav:
   - ru/index.md
-  - ТСПУ:
+  - ТСПУ (Исследовательские материалы):
     - ru/tspu/index.md
     - Исследования: ru/tspu/research.md
     - Packet Morphing: ru/tspu/packet-morphing.md
@@ -80,6 +80,4 @@ nav:
     - Contributing: ru/dev/contributing.md
 
 # Copyright
-copyright: Copyright &copy; 2025 Xpos587
-
-# Updated: 2025-03-25 - workflow trigger
+copyright: Copyright &copy; 2026 Xpos587 | Educational Research Only
