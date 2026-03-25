@@ -12,21 +12,22 @@ Welcome to the documentation of **Gray-core** — a network proxy platform for e
 
 Comprehensive TSPU (Технические средства противодействия угрозам) documentation is available in Russian:
 
-- [TSPU Introduction](https://xpos587.github.io/Gray-core/ru/tspu/) — General architecture and purpose
-- [Research](https://xpos587.github.io/Gray-core/ru/tspu/research) — DPI bypass research
-- [Packet Morphing](https://xpos587.github.io/Gray-core/ru/tspu/packet-morphing) — Packet size randomization design
-- [Timing Randomization](https://xpos587.github.io/Gray-core/ru/tspu/timing-randomization) — Timing randomization design
-- [User Guide](https://xpos587.github.io/Gray-core/ru/tspu/user-guide) — Practical usage
+- [TSPU Introduction](/ru/tspu/) — General architecture and purpose
+- [Research](/ru/tspu/research) — DPI bypass research
+- [Packet Morphing](/ru/tspu/packet-morphing) — Packet size randomization
+- [Timing Randomization](/ru/tspu/timing-randomization) — Timing pattern randomization
+- [User Guide](/ru/tspu/user-guide) — Practical usage guide
 
 ### For Developers
 
-- [Architecture](dev/architecture.md) — Gray-core architecture overview
-- [Contributing](dev/contributing.md) — Contribution guide
+- [Architecture](/en/dev/architecture) — Gray-core architecture overview
+- [Contributing](/en/dev/contributing) — Contribution guide
 
 ## Language
 
-- [Русский 🇷🇺](https://xpos587.github.io/Gray-core/ru/) — Documentation in Russian
+- [Русский 🇷🇺](/ru/) — Перейти к документации на русском
 
 ## Links
 
 - [Repository](https://github.com/Xpos587/Gray-core)
+- [Language Selection](/)
