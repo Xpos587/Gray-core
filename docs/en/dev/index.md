@@ -1,22 +1,25 @@
 # For Developers
 
-Welcome to the developer section of the Xray-core fork.
+Welcome to the developer section of Gray-core.
 
 ## Getting Started
 
-- [Architecture](architecture.md) — Architecture overview and key components
-- [Building](architecture.md#build-commands) — Build instructions
-- [Testing](architecture.md#testing) — Running tests
+- [Architecture](/en/dev/architecture) — Architecture overview and key components
+- [Building](/en/dev/architecture#build-commands) — Build instructions
+- [Testing](/en/dev/architecture#testing) — Running tests
 
 ## Contributing
 
-- [Contribution Guide](contributing.md) — How to contribute
+- [Contribution Guide](/en/dev/contributing) — How to contribute
 
 ## Research
 
-- [TSPU Research](https://xpos587.github.io/Gray-core/ru/tspu/research) — DPI bypass research (Russian)
-- [Packet Morphing](https://xpos587.github.io/Gray-core/ru/tspu/packet-morphing) — Packet randomization design (Russian)
-- [Timing Randomization](https://xpos587.github.io/Gray-core/ru/tspu/timing-randomization) — Timing randomization design (Russian)
+TSPU research documentation is available in Russian:
+
+- [TSPU Research](/ru/tspu/research) — DPI bypass research
+- [Packet Morphing](/ru/tspu/packet-morphing) — Packet randomization
+- [Timing Randomization](/ru/tspu/timing-randomization) — Timing pattern randomization
+- [TSPU Overview](/ru/tspu/) — Introduction to TSPU systems
 
 ## Protocols
 
@@ -34,5 +37,5 @@ REALITY is a protocol for mimicking HTTPS connections to real websites.
 
 ## Links
 
-- [Upstream Documentation](https://xtls.github.io/)
-- [XTLS GitHub](https://github.com/XTLS)
+- [Repository](https://github.com/Xpos587/Gray-core)
+- [Documentation Home](/)
