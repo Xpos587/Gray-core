@@ -5,7 +5,7 @@ site_author: Xpos587
 
 theme:
   name: material
-  language: ru
+  language: en
   palette:
     - scheme: default
       primary: indigo
@@ -31,8 +31,8 @@ theme:
 plugins:
   - search:
       lang:
-        - ru
         - en
+        - ru
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -46,12 +46,12 @@ markdown_extensions:
 
 extra:
   alternate:
-    - language: ru
-      name: Русский
-      link: /ru/
     - language: en
       name: English
       link: /en/
+    - language: ru
+      name: Русский
+      link: /ru/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Xpos587/Gray-core
@@ -62,22 +62,29 @@ site_dir: site
 
 # Navigation
 nav:
-  - ru/index.md
-  - ТСПУ (Исследовательские материалы):
-    - ru/tspu/index.md
-    - Исследования: ru/tspu/research.md
+  - Home: index.md
+  - Russian:
+    - ru/index.md
+    - TSPU (Research Materials): ru/tspu/index.md
+    - Research: ru/tspu/research.md
     - Packet Morphing: ru/tspu/packet-morphing.md
     - Timing Randomization: ru/tspu/timing-randomization.md
     - User Guide: ru/tspu/user-guide.md
-    - Главы:
+    - Chapters:
       - ru/tspu/chapters/01.md
       - ru/tspu/chapters/02.md
       - ru/tspu/chapters/03.md
       - ru/tspu/chapters/04.md
-  - Для разработчиков:
-    - ru/dev/index.md
-    - Архитектура: ru/dev/architecture.md
-    - Contributing: ru/dev/contributing.md
+    - Developers:
+      - ru/dev/index.md
+      - Architecture: ru/dev/architecture.md
+      - Contributing: ru/dev/contributing.md
+  - English:
+    - en/index.md
+    - Developers:
+      - en/dev/index.md
+      - Architecture: en/dev/architecture.md
+      - Contributing: en/dev/contributing.md
 
 # Copyright
 copyright: Copyright &copy; 2026 Xpos587 | Educational Research Only
