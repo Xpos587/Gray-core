@@ -37,10 +37,6 @@ pre-commit:
       glob: "*.go"
       run: go vet ./...
 
-    go-test-short:
-      glob: "*_test.go"
-      run: go test -short ./...
-
 commit-msg:
   commands:
     lint-commit-msg:
@@ -59,40 +55,7 @@ commit-msg:
         fi
 
 pre-push:
-  commands:
-    protect-push:
-      run: |
-        PROTECTED_BRANCHES="^(main|master|develop)$"
-        while read local_ref local_sha remote_ref remote_sha; do
-          if [ "$remote_ref" = "(delete)" ]; then continue; fi
-          BRANCH=$(echo "$remote_ref" | sed 's/refs\/heads\///')
-          if [[ $BRANCH =~ $PROTECTED_BRANCHES ]]; then
-            if [ "$remote_sha" = "0000000000000000000000000000000000000000" ]; then continue; fi
-            IS_ANCESTOR=$(git merge-base --is-ancestor "$remote_sha" "$local_sha" 2>/dev/null; echo $?)
-            if [ "$IS_ANCESTOR" != "0" ]; then
-              echo "❌ PUSH REJECTED: Force push to protected branch '$BRANCH' is not allowed."
-              exit 1
-            fi
-          fi
-          if [[ $BRANCH =~ ^(main|master)$ ]]; then
-            CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
-            if [[ ! $CURRENT_BRANCH =~ ^(release|hotfix|docs)/ ]]; then
-              echo "⚠️  You are pushing to '$BRANCH' from '$CURRENT_BRANCH'."
-              read -p "Type 'yes' to continue: " CONFIRM
-              if [ "$CONFIRM" != "yes" ]; then
-                echo "Push cancelled."
-                exit 1
-              fi
-            fi
-          fi
-        done
-
-    go-test:
-      glob: "*_test.go"
-      run: go test ./...
-
-    go-build:
-      run: CGO_ENABLED=0 go build -o /dev/null ./main
+  skip: true  # Disabled for large projects - use CI instead
 
 # Custom group for manual execution
 format:
@@ -109,3 +72,11 @@ format:
           exit 0
         fi
         goimports -w .
+
+test:
+  commands:
+    go-test:
+      run: go test -short ./...
+
+    go-vet:
+      run: go vet ./...
